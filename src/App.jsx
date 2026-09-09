@@ -72,7 +72,7 @@ function App() {
               <h1 className="hero-name">Ni Gusti Ayu <br/><span>Mutiara</span> Indriyani.</h1>
               <h2 className="hero-role">Driving product success with logic & vision.</h2>
               <p className="hero-desc">
-                Informatics student (GPA 4.00) applying for a Fullstack role. 
+                Informatics student (GPA 4.00) specializing in Fullstack Development. 
                 Experienced in building complex digital applications, such as employee career monitoring systems. 
                 I bridge technical constraints with business goals to build scalable, secure, and user-centric solutions.
               </p>
