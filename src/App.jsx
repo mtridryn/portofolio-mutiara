@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   FiGithub, 
   FiLinkedin, 
@@ -6,12 +6,16 @@ import {
   FiBriefcase,
   FiCode,
   FiCalendar,
-  FiExternalLink
+  FiExternalLink,
+  FiMenu,
+  FiX
 } from 'react-icons/fi';
 import { FaTrophy } from 'react-icons/fa';
 import './index.css';
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -37,18 +41,25 @@ function App() {
     'doc.7.JPG'
   ];
 
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <>
       <nav className="navbar">
         <div className="nav-brand">Mutiara.</div>
-        <div className="nav-links">
-          <a href="#about" className="nav-link">About</a>
-          <a href="#education" className="nav-link">Education</a>
-          <a href="#experience" className="nav-link">Experience</a>
-          <a href="#projects" className="nav-link">Projects</a>
-          <a href="#skills" className="nav-link">Skills</a>
-          <a href="#documentation" className="nav-link">Documentation</a>
-          <a href="#awards" className="nav-link">Awards</a>
+        
+        <div className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
+        </div>
+
+        <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
+          <a href="#education" className="nav-link" onClick={closeMenu}>Education</a>
+          <a href="#experience" className="nav-link" onClick={closeMenu}>Experience</a>
+          <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+          <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
+          <a href="#documentation" className="nav-link" onClick={closeMenu}>Documentation</a>
+          <a href="#awards" className="nav-link" onClick={closeMenu}>Awards</a>
         </div>
       </nav>
       
@@ -231,7 +242,7 @@ function App() {
                 <img 
                   src="/galeri/chatbot.png" 
                   alt="Chatbot RAG" 
-                  style={{ objectFit: 'contain', padding: '1rem', width: '100%', height: '100%' }}
+                  style={{ objectFit: 'contain', padding: '1.5rem', width: '100%', height: '100%' }}
                 />
               </div>
               <div className="project-content">
